@@ -28,6 +28,15 @@ a {
   }
 }
 
+a.white {
+  color: white;
+  @include transition-all;
+  &:focus,
+  &:hover {
+    color: white;
+  }
+}
+
 h1,
 h2,
 h3,

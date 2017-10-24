@@ -76,19 +76,18 @@
             <h2 class="section-heading text-white">Adresse</h2>
             <hr class="light">
             <p class="text-faded text-white">Salzburger Str. 54, 83071 Stepahnskirchen</p>
+            <div id="map" style="padding-bottom: 400px" class="col-lg-8 mx-auto text-center">
 
-
-              <!--iframe
-                width="600"
-                height="450"
+              <iframe
+                height="400"
                 frameborder="0"
                 style="border:0"
                 src="https://www.google.com/maps/embed/v1/place?q=Tieraztpraxis+Sybille+buxbaum,Salzburger%20Str.%2054%2C%20Stephanskirchen%2C%20Germany&key=AIzaSyAfnAp2lKh3wpu9J-feTVKa2hS8Wbsq2Zc" allowfullscreen>
-              </iframe-->
+              </iframe>
 
             <!--a class="btn btn-default btn-xl js-scroll-trigger" href="#services">Öffnungszeiten</a-->
           </div>
-          <div id="map" style="padding-bottom: 300px" class="col-lg-8 mx-auto text-center"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -310,15 +309,35 @@
     <!-- Custom scripts for this template -->
     <script src="js/creative.min.js"></script>
 
-    <script>
+    <!--script>
     var map;
     function initMap() {
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -34.397, lng: 150.644},
-        zoom: 8
-      });
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -33.866, lng: 151.196},
+          zoom: 15
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+
+        service.getDetails({
+          placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
+        }, function(place, status) {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+            var marker = new google.maps.Marker({
+              map: map,
+              position: place.geometry.location
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                'Place ID: ' + place.place_id + '<br>' +
+                place.formatted_address + '</div>');
+              infowindow.open(map, this);
+            });
+          }
+        });
     }
-    </script>
+    </script-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfnAp2lKh3wpu9J-feTVKa2hS8Wbsq2Zc&callback=initMap"
     async defer></script>
     <script>

@@ -9,6 +9,7 @@
     <meta name="author" content="Sybille Buxbaum">
     <meta name="keywords" content="Tierarzt, Tierärztin, Rosenheim, Stephanskirchen, Tieraztpraxis KLeintiere, Schloßberg" />
 
+
     <title>Tierarztpraxis Sybille Buxbaum</title>
 
     <!-- Bootstrap core CSS -->
@@ -74,9 +75,17 @@
           <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading text-white">Adresse</h2>
             <hr class="light">
-            <p class="text-faded"><iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Tieraztpraxis+Sybille+buxbaum,Salzburger%20Str.%2054%2C%20Stephanskirchen%2C%20Germany&key=AIzaSyAfnAp2lKh3wpu9J-feTVKa2hS8Wbsq2Zc" allowfullscreen></iframe>
+            <p class="text-faded text-white">Salzburger Str. 54, 83071 Stepahnskirchen</p>
+            <div id="map"></div>
 
-</p>
+              <!--iframe
+                width="600"
+                height="450"
+                frameborder="0"
+                style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?q=Tieraztpraxis+Sybille+buxbaum,Salzburger%20Str.%2054%2C%20Stephanskirchen%2C%20Germany&key=AIzaSyAfnAp2lKh3wpu9J-feTVKa2hS8Wbsq2Zc" allowfullscreen>
+              </iframe-->
+
             <a class="btn btn-default btn-xl js-scroll-trigger" href="#services">Öffnungszeiten</a>
           </div>
         </div>
@@ -300,6 +309,17 @@
     <!-- Custom scripts for this template -->
     <script src="js/creative.min.js"></script>
 
+    <script>
+    var map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 8
+      });
+    }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfnAp2lKh3wpu9J-feTVKa2hS8Wbsq2Zc&callback=initMap"
+    async defer></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
